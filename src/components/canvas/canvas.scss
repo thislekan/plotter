@@ -1,0 +1,14 @@
+.view-box {
+  height: 100%;
+  width: 100%;
+  margin-top: 2.5rem;
+
+  .canvas-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    canvas {
+      background-color: white;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+.controllers {
+  margin-top: 3.5rem;
+
+  &__container {
+    &__content {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      .btns {
+        height: 4rem;
+        width: 12rem;
+        border-radius: 0.5rem;
+        font-size: 1.3rem;
+        font-weight: 800;
+        text-transform: uppercase;
+
+        &--left {
+          background-color: map-get($colors, hue-2);
+          border: 1px solid map-get($colors, hue-2);
+        }
+
+        &--link {
+          background-color: map-get($colors, hue-2);
+          border: 1px solid map-get($colors, hue-2);
+          text-decoration: unset;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: black;
+          font-weight: 600;
+        }
+
+        &--right {
+          background-color: map-get($colors, bright-hue-1);
+          border: 1px solid map-get($colors, bright-hue-1);
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 400px) {
+    &__container {
+      &__content {
+        justify-content: center;
+
+        .btns {
+          // width: 15rem;
+          &--left {
+            margin-right: 1.5rem;
+          }
+
+          &--right {
+            margin-left: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}

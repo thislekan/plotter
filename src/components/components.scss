@@ -1,0 +1,53 @@
+@import "./canvas/canvas.scss";
+@import "./modal/modal.scss";
+@import "./stats/stats.scss";
+@import "./controls/controls.scss";
+
+.App {
+  .tabs-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 5rem;
+
+    &__btn {
+      height: 4rem;
+      padding: 0 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 3px 5px 7px -4px rgba(0, 0, 0, 0.1);
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-transform: uppercase;
+
+      &--left {
+        background-color: map-get($colors, bright-hue-3);
+        border: 1px solid map-get($colors, bright-hue-3);
+        color: whitesmoke;
+      }
+
+      &--right {
+        background-color: map-get($colors, bright-hue-4);
+        border: 1px solid map-get($colors, bright-hue-4);
+      }
+    }
+  }
+
+  @media screen and (min-width: 500px) {
+    .tabs-container {
+      justify-content: center;
+      &__btn {
+        width: 15rem;
+        padding: unset;
+
+        &--right {
+          margin-left: 2.5rem;
+        }
+
+        &--left {
+          margin: 2.5rem;
+        }
+      }
+    }
+  }
+}
