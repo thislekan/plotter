@@ -57,7 +57,7 @@ export const useDrawPoints = ({
     newPoint?.length && newPoint.pop();
     delete localShapes[lastKeyOfLocalShapes];
     const arrayOfPointsAsShapes = Object.values(localShapes);
-    ctx.clearRect(0, 0, canvas?.height || 100, canvas?.width || 100);
+    ctx.clearRect(0, 0, 750, 1200);
     ctx.beginPath();
     plotShapes(arrayOfPointsAsShapes, ctx);
     setShapes(localShapes);
