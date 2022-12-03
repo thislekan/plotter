@@ -1,4 +1,4 @@
-import { PersistedData, Points, shapeKeys } from "../canvas/interface";
+import { PersistedData, Points } from "../canvas/interface";
 
 export const POINTS_PIXELS = 4;
 export const fetchFromLocalStorage = () => {
