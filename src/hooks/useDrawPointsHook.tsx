@@ -8,6 +8,7 @@ import {
 } from "../components/utils/utils";
 
 const MINIMUM_PATHS_TO_FILL = 2;
+const dpr = window.devicePixelRatio;
 
 export const useDrawPoints = ({
   canvas,
@@ -41,15 +42,19 @@ export const useDrawPoints = ({
   }, [canvas, ctx, handleShapesCount, points, shapes]);
 
   const undoPoints = () => {
+    const _canvas = document.getElementById("canvass") as HTMLCanvasElement;
+    const ctx = _canvas?.getContext("2d") as CanvasRenderingContext2D;
     const oldPoints = [...points];
     oldPoints.pop();
     setPoints(oldPoints);
-    ctx.clearRect(0, 0, canvas?.height || 100, canvas?.width || 100);
+    ctx.clearRect(0, 0, _canvas.width * dpr, _canvas.height * dpr);
     ctx.beginPath();
     plotPoints(oldPoints, ctx);
   };
 
   const undoShapes = (override?: boolean) => {
+    const _canvas = document.getElementById("canvass") as HTMLCanvasElement;
+    const ctx = _canvas?.getContext("2d") as CanvasRenderingContext2D;
     const localShapes = { ...shapes };
     const keysOfShapes = Object.keys(localShapes);
     const lastKeyOfLocalShapes = keysOfShapes.length - 1;
@@ -57,8 +62,8 @@ export const useDrawPoints = ({
     newPoint?.length && newPoint.pop();
     delete localShapes[lastKeyOfLocalShapes];
     const arrayOfPointsAsShapes = Object.values(localShapes);
-    ctx.clearRect(0, 0, 750, 1200);
-    ctx.beginPath();
+    ctx?.clearRect(0, 0, _canvas.width * dpr, _canvas.height * dpr);
+    ctx?.beginPath();
     plotShapes(arrayOfPointsAsShapes, ctx);
     setShapes(localShapes);
     setPoints(newPoint);
